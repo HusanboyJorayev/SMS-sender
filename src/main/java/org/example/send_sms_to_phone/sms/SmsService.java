@@ -12,12 +12,11 @@ import java.util.Map;
 
 @Service
 public class SmsService {
-    private final String API_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgzODc3Nzgs" +
-            "ImlhdCI6MTcyNTc5NTc3OCwicm9sZSI6InRlc3QiLCJzaWduIjoiZWRmYjQ1YmRhYzE5OGVjNzI0NDRkNmY" +
-            "2MTUzNTk4ODEyYzE4YWMxZTA3NjEyYzA0ZTRjODhkZDhmZWZkNmE2MCIsInN1YiI6IjU4NDgifQ." +
-            "z4vp8be-HQf05HgxgY8bT5xEhkaWLvH35Qp2_61bWdY";
+    private final String API_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgzOTMxOTcsImlhdCI6MTcyNTgwMTE5Nyw" +
+            "icm9sZSI6InRlc3QiLCJzaWduIjoiZWRmYjQ1YmRhYzE5OGVjNzI0NDRkNmY2MTUzNTk4ODEyY" +
+            "zE4YWMxZTA3NjEyYzA0ZTRjODhkZDhmZWZkNmE2MCIsInN1YiI6IjU4NDgifQ.K-D89zSHciYTh9dMt559hUMEZJLcPGKNp9zamY76X30";
     private final String BASE_URL = "https://notify.eskiz.uz/api/message/sms/send";
-    private final String messageText = "BU ESKIZIDAN HABAR";
+    private final String messageText = "Bu Eskiz dan test";
 
     public String sendSms(String phoneNumber) {
         RestTemplate restTemplate = new RestTemplate();
@@ -35,7 +34,6 @@ public class SmsService {
         ResponseEntity<String> response = restTemplate.exchange(
                 BASE_URL, HttpMethod.POST, entity, String.class
         );
-
         return response.getBody();
     }
 }
